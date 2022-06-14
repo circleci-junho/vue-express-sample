@@ -1,0 +1,48 @@
+version: "3.7"
+
+services:
+  web:
+    build:
+      context: ./web
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./web/:/web/
+    
+    command: /bin/sh -c "yarn install && yarn serve"
+
+    stdin_open: true
+    tty: true
+
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./api:/api/
+    env_file:
+      - ./api/.env.local
+
+    command: /bin/sh -c "yarn install && yarn dev"
+
+    stdin_open: true
+    tty: true
+    
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:14.3
+    ports:
+      - "5432:5432"
+    volumes:
+      - db-volume:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=passw0rd
+
+volumes:
+  db-volume:
