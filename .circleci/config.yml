@@ -21,6 +21,7 @@ jobs:
     executor: default
     steps:
       - checkout
+      - run: pwd
       - run: ls
       - run: cd ~/web
       - yarn_install
