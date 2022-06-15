@@ -13,15 +13,15 @@ commands:
         type: string
     steps:
       - restore_cache:
-          key: yarn-deps-cache-{{ checksum "package.json" }}
+          key: v1-yarn-<<parameters.directory>>-cache-{{ checksum "<<parameters.directory>>/package.json" }}
       - run:
           command: |
             cd <<parameters.directory>>
             yarn install
       - save_cache:
-          key: yarn-deps-cache-{{ checksum "package.json" }}
+          key: v1-yarn-<<parameters.directory>>-cache-{{ checksum "<<parameters.directory>>/package.json" }}
           paths:
-              - node_modules
+              - <<parameters.directory>>/node_modules
 
 jobs:
   test:
