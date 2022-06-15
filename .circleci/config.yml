@@ -21,7 +21,7 @@ commands:
       - save_cache:
           key: yarn-deps-cache-{{ checksum "package.json" }}
           paths:
-              - node_modules
+              - <<parameters.directory>>/node_modules
 
 jobs:
   test:
