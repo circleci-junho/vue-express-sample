@@ -14,7 +14,7 @@ commands:
       - save_cache:
           key: yarn-deps-cache-{{ checksum "package.json" }}
           paths:
-              - node_modules
+              - web/node_modules
 
 jobs:
   test:
