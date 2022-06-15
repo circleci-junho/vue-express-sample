@@ -1,10 +1,9 @@
-FROM node:16-alpine
+FROM node:16
 
 WORKDIR /web
 
 COPY . /web
 
-# RUN npm install && \
-#     npm install -g @vue/cli
+RUN yarn install 
 
 EXPOSE 8080
