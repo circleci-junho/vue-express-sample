@@ -7,7 +7,6 @@ executors:
 
 commands:
   yarn_install:
-    working_directory: ~/my-app
     steps:
       - restore_cache:
           key: yarn-deps-cache-{{ checksum "package.json" }}
@@ -22,6 +21,7 @@ jobs:
     executor: default
     steps:
       - checkout
+      - run: cd ~/web
       - yarn_install
       - run: yarn test:unit
 
