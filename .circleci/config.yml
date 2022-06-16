@@ -22,6 +22,7 @@ commands:
           key: v1-yarn-<<parameters.directory>>-cache-{{ checksum "<<parameters.directory>>/package.json" }}
           paths:
               - <<parameters.directory>>/node_modules
+              - <<parameters.directory>>/.cache
 
 jobs:
   test:
