@@ -3,7 +3,7 @@ version: 2.1
 executors:
   default:
     docker:
-      - image: cypress/base:16.14.0
+      - image: cypress/base:16.13.0
 
 commands:
   yarn_install:
