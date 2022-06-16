@@ -10,7 +10,7 @@ services:
     volumes:
       - ./web/:/web/
     
-    command: /bin/sh -c "yarn install && yarn serve"
+    command: /bin/sh -c "yarn serve"
 
     stdin_open: true
     tty: true
@@ -26,7 +26,7 @@ services:
     env_file:
       - ./api/.env.local
 
-    command: /bin/sh -c "yarn install && yarn dev"
+    command: /bin/sh -c "yarn dev"
 
     stdin_open: true
     tty: true

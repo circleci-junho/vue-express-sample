@@ -3,7 +3,7 @@ version: 2.1
 executors:
   default:
     docker:
-      - image: cimg/node:16.15.1
+      - image: cypress/base:16.14.0
 
 commands:
   yarn_install:
@@ -33,6 +33,9 @@ jobs:
       - run:
           working_directory: web
           command: yarn test:unit
+      - run:
+          working_directory: web
+          command: yarn test:e2e
 
 workflows:
   main:
