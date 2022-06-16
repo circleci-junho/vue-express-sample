@@ -42,5 +42,6 @@ workflows:
     jobs:
       - test
       - cypress/run:
+          executor: cypress/base-14
           yarn: true
           working_directory: web
