@@ -5,6 +5,9 @@ executors:
     docker:
       - image: cypress/base:16.14.0
 
+orbs:
+  browser-tools: circleci/browser-tools@1.2.3
+
 commands:
   yarn_install:
     parameters:
